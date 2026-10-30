@@ -1,0 +1,53 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{fullpage}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+\title{
+  {Applied Analysis Seminar Notes}
+  }
+\begin{document}
+\maketitle
+\section{Navier-Stokes Equations}
+Navier-Stokes equations are non-linear PDEs that govern the flow of fluids
+and gases. There are many different types of flow regimes and depending on the modelling
+needs one can make different simplification assumtions to help with the computation.
+
+In the most general case there are three conservation laws at play. The conservation of
+momentum, conservation of mass and conservation of energy. The energy conservation law is
+important for cases where heating effects play a role.
+
+The goal of this seminar is to gain fundamental understanding of these equations and solution
+approaches. Since the heating effects add further complications to an already complex system,
+only cases without these effects are considered here.
+
+In this seminar project the benchmark model of a lid-driven cavity in 2D is considered.
+It may appear as a simple model, yet it hides plethora of depth to gain a solid understanding
+of the challenges one can face in simulating intricate domains and different flow regimes.
+
+The Navier-Stokes equations is a coupled system of PDEs  of the following form:
+\begin{equation}
+\begin{cases}
+  \frac{\partial u}{\partial t} - \operatorname{div}\left[\nu\left(\nabla u + \nabla u^T\right)\right] + (u \cdot \nabla)u + \nabla p = f, & x \in \Omega, \, t > 0, \\[5pt]
+  \operatorname{div} u = 0, & x \in \Omega, \, t > 0,
+\end{cases}
+\end{equation}
+This is the general form where $\Omega$ is the calculation domain. In this case, it is a unit square
+domain of the form $\Omega = (0, 1)\times(0, 1)$. Now, there are no external foces acting on the
+fluid inside the domain hence the right hand side of the first equaiton is thus zero.
+\begin{equation}
+\begin{cases}
+  \frac{\partial u}{\partial t} - \operatorname{div}\left[\nu\left(\nabla u + \nabla u^T\right)\right] + (u \cdot \nabla)u + \nabla p = 0, & x \in \Omega, \, t > 0, \\[5pt]
+  \operatorname{div} u = 0, & x \in \Omega, \, t > 0,
+\end{cases}
+\end{equation}
+By non-dimensionalising the equaitons one gets the form:
+\begin{equation}
+\begin{cases}
+  \frac{\partial u}{\partial t} - \frac{1}{\mathrm{Re}}\operatorname{div}\left[\left(\nabla u + \nabla u^T\right)\right] + (u \cdot \nabla)u + \nabla p = 0, & x \in \Omega, \, t > 0, \\[5pt]
+  \operatorname{div} u = 0, & x \in \Omega, \, t > 0,
+\end{cases}
+\end{equation}
+where Re is the Reynold's number $\mathrm{Re} = \frac{UL}{\nu}$. This is the only meaningfull
+parameter in this case. Depending on the size the number turbulences may or may not appear.
+\end{document}
