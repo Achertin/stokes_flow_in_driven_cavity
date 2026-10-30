@@ -64,8 +64,7 @@ with $\beta$ independent of the mesh size. In `LBB_test.ipynb`, the discrete con
 - **P1–P1** has a much smaller and erratic $\gamma_h$, so the pressure is not controlled. The result is the oscillating pressure in the plot at the top of this page, with visible artefacts in the velocity field too.
 - **P1b–P1 (MINI element)** enriches the P1 velocity with a cubic bubble function on each triangle (Arnold, Brezzi and Fortin, 1984). This restores stability at a lower cost than P2–P1, and the pressure becomes smooth again:
 
-![Velocity streamlines comparison for P2-P1 and P1-P1 elements](docs/figures/streamlines_comparison.png)
-![Pressure streamlines comparison for P2-P1 and P1-P1 elements](docs/figures/pressure_comparison.png)
+![Velocity streamlines and pressure isolines for the P1b–P1 element](docs/figures/p1b_p1.png)
 
 ## 2. Verification with manufactured solutions
 
@@ -106,8 +105,7 @@ where $\hat{A}$ is one algebraic multigrid V-cycle (PETSc `gamg`) on the velocit
 | 172,130 | 4.30 | 2.90 | 90 |
 | 685,231 | 30.2 | 11.5 | 96 |
 
-![Execution time](docs/figures/solver_comparison.png)
-![and MINRES iteration count](docs/figures/iterations_MINRES.png)
+![Execution time and MINRES iteration count](docs/figures/solver_comparison.png)
 
 - LU scales with an exponent of about 1.35, close to the expected 1.5. Preconditioned MINRES scales with about 1.1, close to linear.
 - The two solvers break even at about 10,000 unknowns. Beyond that, MINRES pulls ahead: 2.6 times faster at the finest mesh.
@@ -127,4 +125,4 @@ Times are from single serial runs, so the absolute values depend on the hardware
 
 ## A note on tools
 
-I set up the simulation and ran the experiments myself, working from the FEniCSx and PETSc documentation, Quarteroni's book and my lecture notes. I used AI assistants for background research, for checking my reasoning and for some simple scripts, and Claude (Anthropic's AI assistant) to help write this README.
+[Adjust to match your own experience; your "Reflections on AI use" slide is a good basis.] I set up the simulation and ran the experiments myself, working from the FEniCSx and PETSc documentation, Quarteroni's book and my lecture notes. I used AI assistants for background research, for checking my reasoning and for some simple scripts, and Claude (Anthropic's AI assistant) to help write this README.
